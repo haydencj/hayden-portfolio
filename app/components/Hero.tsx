@@ -1,5 +1,5 @@
 export default function Hero() {
-    console.log('Rendering hero component');
+  console.log('Rendering hero component');
   return (
     <section className="bg-gray-900 text-white py-20">
       <div className="container mx-auto px-4">
