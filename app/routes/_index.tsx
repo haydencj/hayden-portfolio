@@ -10,6 +10,7 @@ export default function Portfolio() {
   return (
     <div>
       <Hero />
+      {/* <div className="h-20 bg-gradient-to-b from-cal_poly_green-500 to-transparent"></div> */}
     </div>
   );
 }
