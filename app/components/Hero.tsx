@@ -15,7 +15,7 @@ export default function Hero() {
           </div>
           <div className="flex space-x-4">
             <a
-              href="public/downloads/Hayden-Johnson-Resume.pdf"
+              href="/downloads/Hayden-Johnson-Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-between space-x-2 bg-redwood-500 hover:bg-redwood-400 font-bold mt-5 py-2 px-6 rounded"
