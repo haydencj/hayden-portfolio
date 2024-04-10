@@ -3,9 +3,9 @@ export default function About() {
   return (
     <section className="py-8">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-4">About Me</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
+            <h2 className="text-3xl font-bold mb-4">ABOUT</h2>
             <p className="text-lg mb-4">
               I have experience working with a wide range of technologies,
               including React, Node.js, Python, AWS cloud services, and both SQL and NoSQL databases.
@@ -23,8 +23,8 @@ export default function About() {
             </p>
           </div>
           <div>
-            <h3 className="text-xl font-bold mb-4">Skills</h3>
-            <ul className="grid grid-cols-2 gap-4">
+            <h3 className="text-3xl font-bold mb-4">SKILLS</h3>
+            <ul className="grid grid-cols-4 gap-4">
               <li>JavaScript</li>
               <li>React</li>
               <li>Node.js</li>

@@ -10,29 +10,15 @@ export default function Hero() {
             className="w-32 h-32 rounded-full mb-6 sm:mb-0"
           />
           <div className="text-center sm:text-left">
-            <h1 className="text-4xl font-bold mb-2">Hayden Johnson</h1>
+            <h1 className="text-4xl font-bold mb-2">HAYDEN JOHNSON</h1>
             <p className="text-xl">Software Engineer, Data Scientist</p>
           </div>
-          <p className="text-center sm:text-left text-lg mt-6 mb-8">
-            A passionate computer science student with experience in full-stack
-            development, data analytics, and web automation.
-          </p>
           <div className="flex space-x-4">
             <a
-              href="/projects"
-              className="flex items-center justify-between space-x-2 bg-redwood-500 hover:bg-redwood-400 font-bold py-2 px-8 rounded"
-            >
-              <span>Projects</span>
-              <img
-                src="/icons/keyboard.svg"
-                alt="Projects Icon"
-                className="w-5 h-5"
-              />
-            </a>
-            <a
               href="public/downloads/Hayden-Johnson-Resume.pdf"
-              download
-              className="flex items-center justify-between space-x-2 bg-redwood-500 hover:bg-redwood-400 font-bold py-2 px-8 rounded"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-between space-x-2 bg-redwood-500 hover:bg-redwood-400 font-bold mt-5 py-2 px-6 rounded"
             >
               <span>Resume</span>
               <img
