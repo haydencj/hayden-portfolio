@@ -22,7 +22,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className='bg-cal_poly_green text-snow'>
         <Outlet />
         <ScrollRestoration />
         <Scripts />
