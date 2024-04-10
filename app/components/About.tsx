@@ -26,7 +26,7 @@ export default function About() {
           </div>
           <div>
             <h3 className="text-3xl text-snow font-bold mb-4">SKILLS</h3>
-            <ul className="grid grid-cols-4 gap-4 ">
+            <ul className="grid grid-cols-2 sm:grid-cols-3 gap-4">
               <li className="bg-snow rounded-xl p-3">JavaScript</li>
               <li className="bg-snow rounded-xl p-3">React</li>
               <li className="bg-snow rounded-xl p-3">Node.js</li>
