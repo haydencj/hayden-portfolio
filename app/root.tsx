@@ -8,7 +8,7 @@ import {
 
 import type { LinksFunction } from '@remix-run/node';
 import stylesheet from './styles/tailwind.css?url';
-import animations from './styles/animations.css';
+import animations from './styles/animations.css?url';
 
 export const links: LinksFunction = () => [
   { rel: 'stylesheet', href: stylesheet },
