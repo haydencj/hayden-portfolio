@@ -32,9 +32,7 @@ export default function Experience() {
                 />
               </Link>
               <div>
-                <p className="text-lg font-bold">
-                  Navarro College
-                </p>
+                <p className="text-lg font-bold">Navarro College</p>
                 <p>Associate of Science</p>
                 <p>August 2017 - December 2019</p>
               </div>
