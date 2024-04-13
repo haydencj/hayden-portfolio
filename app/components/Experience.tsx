@@ -5,7 +5,7 @@ export default function Experience() {
     <section className="text-licorice py-10">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="w-fit">
+          <div className="container w-fit">
             <h2 className="text-3xl font-bold mb-4">EDU</h2>
             <div className="flex items-center bg-snow shadow-lg border-2 border-black rounded-xl p-3 mb-4">
               <Link to="https://www.linkedin.com/school/university-of-texas-at-arlington/">
@@ -40,7 +40,7 @@ export default function Experience() {
               </div>
             </div>
           </div>
-          <div className="w-fit">
+          <div className="container w-fit">
             <h2 className="text-3xl font-bold mb-4">WORK</h2>
             <div className="flex items-center bg-snow shadow-lg border-2 border-black rounded-xl p-3 mb-4">
               <Link to="https://www.linkedin.com/company/oncor-electric-delivery/">
