@@ -6,8 +6,8 @@ export default function Experience() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="w-fit">
-            <h2 className="text-snow text-3xl font-bold mb-4">EDU</h2>
-            <div className="flex items-center bg-snow rounded-xl p-3 mb-4">
+            <h2 className="text-3xl font-bold mb-4">EDU</h2>
+            <div className="flex items-center bg-snow shadow-lg border-2 border-black rounded-xl p-3 mb-4">
               <Link to="https://www.linkedin.com/school/university-of-texas-at-arlington/">
                 <img
                   src="/icons/uta_logo.jpeg"
@@ -25,8 +25,8 @@ export default function Experience() {
             </div>
           </div>
           <div className="w-fit">
-            <h2 className="text-snow text-3xl font-bold mb-4">WORK</h2>
-            <div className="flex items-center bg-snow rounded-xl p-3 mb-4">
+            <h2 className="text-3xl font-bold mb-4">WORK</h2>
+            <div className="flex items-center bg-snow shadow-lg border-2 border-black rounded-xl p-3 mb-4">
               <Link to="https://www.linkedin.com/company/oncor-electric-delivery/">
                 <img
                   src="/icons/oncor_logo.jpeg"
@@ -40,7 +40,7 @@ export default function Experience() {
                 <p>April 2024 - Present</p>
               </div>
             </div>
-            <div className="flex items-center bg-snow rounded-xl p-3 mb-4">
+            <div className="flex items-center bg-snow shadow-lg border-2 border-black rounded-xl p-3 mb-4">
               <Link to="https://www.linkedin.com/company/hennge/">
                 <img
                   src="/icons/hennge_logo.jpeg"
@@ -55,7 +55,7 @@ export default function Experience() {
                 <p>January 2024 - February 2024</p>
               </div>
             </div>
-            <div className="flex items-center bg-snow rounded-xl p-3 mb-4">
+            <div className="flex items-center bg-snow shadow-lg border-2 border-black rounded-xl p-3 mb-4">
               <Link to="https://www.linkedin.com/company/oncor-electric-delivery/">
                 <img
                   src="/icons/oncor_logo.jpeg"
@@ -72,7 +72,7 @@ export default function Experience() {
                 <p>June 2023 - August 2023</p>
               </div>
             </div>
-            <div className="flex items-center bg-snow rounded-xl p-3">
+            <div className="flex items-center bg-snow shadow-lg border-2 border-black rounded-xl p-3">
               <Link to="https://www.linkedin.com/company/oncor-electric-delivery/">
                 <img
                   src="/icons/oncor_logo.jpeg"
