@@ -7,10 +7,12 @@ import {
 } from '@remix-run/react';
 
 import type { LinksFunction } from '@remix-run/node';
-import stylesheet from '~/tailwind.css?url';
+import stylesheet from './styles/tailwind.css?url';
+import animations from './styles/animations.css';
 
 export const links: LinksFunction = () => [
   { rel: 'stylesheet', href: stylesheet },
+  { rel: 'stylesheet', href: animations },
 ];
 
 export default function App() {
@@ -22,7 +24,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className="bg-snow text-licorice">
+      <body className="bg-cyan-100 text-licorice">
         <Outlet />
         <ScrollRestoration />
         <Scripts />
