@@ -2,7 +2,7 @@ import { Link } from '@remix-run/react';
 
 export default function Experience() {
   return (
-    <section className="text-licorice py-6">
+    <section className="text-licorice py-10">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="w-fit">

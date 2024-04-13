@@ -3,7 +3,7 @@ import { Link } from '@remix-run/react';
 export default function Hero() {
   console.log('Rendering hero component');
   return (
-    <section className="py-12 ">
+    <section className="py-10">
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center sm:flex-row sm:justify-center sm:space-x-8">
           <img
