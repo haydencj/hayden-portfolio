@@ -1,21 +1,21 @@
 @keyframes backgroundTransition {
-    0% {
-      background-color: #fffbfc; /* snow */
-    }
-    25% {
-      background-color: #d1fae5;
-    }
-    50% {
-      background-color: #cffafe;
-    }
-    75% {
-      background-color: #e0e7ff;
-    }
-    100% {
-      background-color: #ffe4e6; 
-    }
+  0% {
+    background-color: #fffbfc; /* snow */
   }
-  
-  .animate-background {
-    animation: backgroundTransition 15s alternate infinite;
+  25% {
+    background-color: #d1fae5;
   }
+  50% {
+    background-color: #cffafe;
+  }
+  75% {
+    background-color: #e0e7ff;
+  }
+  100% {
+    background-color: #ffe4e6;
+  }
+}
+
+.animate-background {
+  animation: backgroundTransition 15s alternate infinite;
+}
