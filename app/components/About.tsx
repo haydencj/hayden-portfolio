@@ -26,7 +26,7 @@ export default function About() {
           </div>
           <div>
             <h3 className="text-3xl font-bold mb-4">SKILLS</h3>
-            <ul className="grid grid-cols-3 md:grid-cols-2 lg:grid-cols-3 gap-4 w-fit">
+            <ul className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 w-fit">
               <li className="bg-snow shadow-md border-2 border-black rounded-xl p-3 flex justify-center items-center">
                 <span>JavaScript</span>
                 <img
