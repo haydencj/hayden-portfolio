@@ -23,6 +23,22 @@ export default function Experience() {
                 <p>August 2021 - May 2025</p>
               </div>
             </div>
+            <div className="flex items-center bg-snow shadow-lg border-2 border-black rounded-xl p-3 mb-4">
+              <Link to="https://www.linkedin.com/school/navarro-college/">
+                <img
+                  src="/icons/navarro_logo.png"
+                  alt="Hayden Johnson"
+                  className="w-16 h-16 rounded-full mr-3 mb-6 sm:mb-0 transition-transform duration-300 hover:scale-110"
+                />
+              </Link>
+              <div>
+                <p className="text-lg font-bold">
+                  Navarro College
+                </p>
+                <p>Associate of Science</p>
+                <p>August 2017 - December 2019</p>
+              </div>
+            </div>
           </div>
           <div className="w-fit">
             <h2 className="text-3xl font-bold mb-4">WORK</h2>
