@@ -9,7 +9,7 @@ export default function Hero() {
           <img
             src="/images/pfp.jpeg"
             alt="Hayden Johnson"
-            className="w-32 h-32 rounded-full mb-6 sm:mb-0"
+            className="w-32 h-32 shadow-xl mb-6 sm:mb-0"
           />
           <div className="text-center sm:text-left">
             <h1 className="text-4xl font-bold mb-2">HAYDEN JOHNSON</h1>
@@ -25,7 +25,7 @@ export default function Hero() {
             <img
               src="/icons/document.svg"
               alt="Resume Icon"
-              className="w-12 h-12"
+              className="w-12 h-12 transition-transform duration-300 hover:scale-110"
             />
           </a>
           <a
@@ -36,7 +36,7 @@ export default function Hero() {
             <img
               src="/icons/github.svg"
               alt="Github Icon"
-              className="w-12 h-12"
+              className="w-12 h-12 transition-transform duration-300 hover:scale-110"
             />
           </a>
           <a
@@ -47,7 +47,7 @@ export default function Hero() {
             <img
               src="/icons/linkedin.svg"
               alt="Linkedin Icon"
-              className="w-12 h-12"
+              className="w-12 h-12 transition-transform duration-300 hover:scale-110"
             />
           </a>
         </div>

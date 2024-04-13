@@ -12,7 +12,7 @@ export default function Experience() {
                 <img
                   src="/icons/uta_logo.jpeg"
                   alt="Hayden Johnson"
-                  className="w-16 h-16 rounded-full mr-3 mb-6 sm:mb-0"
+                  className="w-16 h-16 rounded-full mr-3 mb-6 sm:mb-0 transition-transform duration-300 hover:scale-110"
                 />
               </Link>
               <div>
@@ -31,7 +31,7 @@ export default function Experience() {
                 <img
                   src="/icons/oncor_logo.jpeg"
                   alt="Hayden Johnson"
-                  className="w-16 h-16 rounded-full mr-3 mb-6 sm:mb-0"
+                  className="w-16 h-16 rounded-full mr-3 mb-6 sm:mb-0 transition-transform duration-300 hover:scale-110"
                 />
               </Link>
               <div>
@@ -45,7 +45,7 @@ export default function Experience() {
                 <img
                   src="/icons/hennge_logo.jpeg"
                   alt="Hayden Johnson"
-                  className="w-16 h-16 rounded-full mr-3 mb-6 sm:mb-0"
+                  className="w-16 h-16 rounded-full mr-3 mb-6 sm:mb-0 transition-transform duration-300 hover:scale-110"
                 />
               </Link>
 
@@ -60,7 +60,7 @@ export default function Experience() {
                 <img
                   src="/icons/oncor_logo.jpeg"
                   alt="Hayden Johnson"
-                  className="w-16 h-16 rounded-full mr-3 mb-6 sm:mb-0"
+                  className="w-16 h-16 rounded-full mr-3 mb-6 sm:mb-0 transition-transform duration-300 hover:scale-110"
                 />
               </Link>
 
@@ -77,7 +77,7 @@ export default function Experience() {
                 <img
                   src="/icons/oncor_logo.jpeg"
                   alt="Hayden Johnson"
-                  className="w-16 h-16 rounded-full mr-3 mb-6 sm:mb-0"
+                  className="w-16 h-16 rounded-full mr-3 mb-6 sm:mb-0 transition-transform duration-300 hover:scale-110"
                 />
               </Link>
               <div>
