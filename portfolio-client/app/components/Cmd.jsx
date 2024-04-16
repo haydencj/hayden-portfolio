@@ -1,76 +1,93 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef, useMemo } from 'react';
+import { Terminal } from '@xterm/xterm';
 import { FitAddon } from '@xterm/addon-fit';
 import { io } from 'socket.io-client';
-import '@xterm/xterm/css/xterm.css';
-import XTerm from '@xterm/xterm';
 
 const Cmd = () => {
   const terminalRef = useRef(null);
-  const terminalInstanceRef = useRef(null);
   const socketRef = useRef(null);
 
+  const terminal = useMemo(() => {
+    if (!terminalRef.current) return null;
+
+    const terminal = new Terminal({
+      fontFamily: '"Fira Code", monospace',
+      fontSize: 14,
+      fontWeight: 'normal',
+      cursorBlink: true,
+      cursorStyle: 'underline',
+      theme: {
+        background: '#1e1e1e',
+        foreground: '#d4d4d4',
+        cursor: '#f0f0f0',
+        selection: '#264f78',
+        black: '#000000',
+        red: '#ce9178',
+        green: '#b5cea8',
+        yellow: '#dcdcaa',
+        blue: '#9cdcfe',
+        magenta: '#c586c0',
+        cyan: '#4ec9b0',
+        white: '#dcdcdc',
+        brightBlack: '#808080',
+        brightRed: '#f14c4c',
+        brightGreen: '#16c60c',
+        brightYellow: '#f9f1a5',
+        brightBlue: '#3b78ff',
+        brightMagenta: '#b4009e',
+        brightCyan: '#61d6d6',
+        brightWhite: '#f2f2f2',
+      },
+    });
+
+    const fitAddon = new FitAddon();
+    terminal.loadAddon(fitAddon);
+    terminal.open(terminalRef.current);
+    fitAddon.fit();
+
+    return terminal;
+  }, []);
+
   useEffect(() => {
-    const createTerminal = async () => {
-      if (terminalRef.current && !terminalInstanceRef.current) {
-        const socketInstance = io('http://localhost:4000');
-        socketRef.current = socketInstance;
+    if (!terminal) return;
 
-        const terminal = new XTerm.Terminal({
-          fontFamily: 'Menlo, Monaco, "Courier New", monospace',
-          fontSize: 14,
-          lineHeight: 1.5,
-          cursorBlink: true,
-          cursorStyle: 'bar',
-          theme: {
-            background: '#282a36',
-            foreground: '#f8f8f2',
-            cursor: '#f8f8f2',
-            selection: '#44475a',
-            // ... (rest of the theme configuration)
-          },
-        });
+    const socketInstance = io('http://localhost:4000');
+    socketRef.current = socketInstance;
 
-        const fitAddon = new FitAddon();
-        terminal.loadAddon(fitAddon);
-        terminal.open(terminalRef.current);
-        fitAddon.fit();
+    socketInstance.on('output', (data) => {
+      terminal.write(data);
+    });
 
-        terminalInstanceRef.current = terminal;
+    terminal.onData((data) => {
+      socketInstance.emit('input', data);
+    });
 
-        socketInstance.on('output', (data) => {
-          terminal.write(data);
-        });
-
-        terminal.onData((data) => {
-          socketInstance.emit('input', data);
-        });
-
-        terminal.focus();
-      }
-    };
-
-    createTerminal();
+    terminal.focus();
 
     return () => {
-      terminalInstanceRef.current?.dispose();
-      socketRef.current?.disconnect();
+      socketInstance.disconnect();
     };
-  }, []);
+  }, [terminal]);
 
   return (
     <div
-      ref={terminalRef}
-      onClick={() => terminalInstanceRef.current?.focus()}
       style={{
-        width: '100%',
-        height: '400px',
-        padding: '10px',
-        margin: '8px',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+        margin: '10px',
+        padding: '8px',
       }}
-    />
+    >
+      <div
+        ref={terminalRef}
+        style={{
+          height: '400px',
+          width: '50%',
+          background: '#282a36',
+        }}
+      />
+    </div>
   );
 };
 

@@ -13,7 +13,7 @@ const io = socketIO(server, {
 });
 
 // Start a single Docker process when the server starts
-const dockerProcess = spawn('docker', ['run', '-i', '--rm', 'msh:latest']);
+const dockerProcess = spawn('docker', ['run', '-i', '--rm', 'msh']);
 
 dockerProcess.stdout.on('data', (data) => {
   console.log('Docker output:', data.toString());
