@@ -1,25 +1,21 @@
-import { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
+import { FitAddon } from '@xterm/addon-fit';
 import { io } from 'socket.io-client';
+import '@xterm/xterm/css/xterm.css';
+import XTerm from '@xterm/xterm';
 
 const Cmd = () => {
-  console.log('Rendering CMD component');
   const terminalRef = useRef(null);
-  const terminalInstanceRef = useRef(null); // Reference to store the Terminal instance
+  const terminalInstanceRef = useRef(null);
   const socketRef = useRef(null);
 
   useEffect(() => {
-    console.log('useEffect in CMD component');
+    const createTerminal = async () => {
+      if (terminalRef.current && !terminalInstanceRef.current) {
+        const socketInstance = io('http://localhost:4000');
+        socketRef.current = socketInstance;
 
-    const loadXterm = async () => {
-      if (!terminalInstanceRef.current && terminalRef.current) {
-        console.log("Creating a new terminal instance"); // Log when a new instance is created
-
-        // Check if a Terminal instance already exists
-        const { Terminal } = await import('@xterm/xterm');
-        const { FitAddon } = await import('@xterm/addon-fit');
-        await import('@xterm/xterm/css/xterm.css');
-
-        const terminal = new Terminal({
+        const terminal = new XTerm.Terminal({
           fontFamily: 'Menlo, Monaco, "Courier New", monospace',
           fontSize: 14,
           lineHeight: 1.5,
@@ -30,59 +26,52 @@ const Cmd = () => {
             foreground: '#f8f8f2',
             cursor: '#f8f8f2',
             selection: '#44475a',
-            black: '#000000',
-            red: '#ff5555',
-            green: '#50fa7b',
-            yellow: '#f1fa8c',
-            blue: '#6272a4',
-            magenta: '#ff79c6',
-            cyan: '#8be9fd',
-            white: '#bfbfbf',
-            brightBlack: '#4d4d4d',
-            brightRed: '#ff6e67',
-            brightGreen: '#5af78e',
-            brightYellow: '#f4f99d',
-            brightBlue: '#caa9fa',
-            brightMagenta: '#ff92d0',
-            brightCyan: '#9aedfe',
-            brightWhite: '#e6e6e6',
+            // ... (rest of the theme configuration)
           },
         });
-
-        terminalInstanceRef.current = terminal; // Store the Terminal instance in the ref
 
         const fitAddon = new FitAddon();
         terminal.loadAddon(fitAddon);
         terminal.open(terminalRef.current);
         fitAddon.fit();
 
-        socketRef.current = io('http://localhost:4000');
-        socketRef.current.on('output', (data) => {
+        terminalInstanceRef.current = terminal;
+
+        socketInstance.on('output', (data) => {
           terminal.write(data);
         });
 
         terminal.onData((data) => {
-          socketRef.current.emit('input', data);
+          socketInstance.emit('input', data);
         });
 
         terminal.focus();
       }
     };
 
-    loadXterm();
+    createTerminal();
 
     return () => {
-      if (terminalInstanceRef.current) {
-        terminalInstanceRef.current.dispose(); // Dispose the Terminal instance
-        terminalInstanceRef.current = null; // Clear the ref after disposing
-      }
-      if (socketRef.current) {
-        socketRef.current.disconnect();
-      }
+      terminalInstanceRef.current?.dispose();
+      socketRef.current?.disconnect();
     };
   }, []);
 
-  return <section ref={terminalRef} />;
+  return (
+    <div
+      ref={terminalRef}
+      onClick={() => terminalInstanceRef.current?.focus()}
+      style={{
+        width: '100%',
+        height: '400px',
+        padding: '10px',
+        margin: '8px',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+    />
+  );
 };
 
 export default Cmd;

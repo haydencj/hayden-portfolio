@@ -12,29 +12,29 @@ const io = socketIO(server, {
   },
 });
 
+// Start a single Docker process when the server starts
+const dockerProcess = spawn('docker', ['run', '-i', '--rm', 'msh:latest']);
+
+dockerProcess.stdout.on('data', (data) => {
+  console.log('Docker output:', data.toString());
+  io.emit('output', data.toString());  // Emit to all clients
+});
+
+dockerProcess.stderr.on('data', (data) => {
+  console.error('Docker error:', data.toString());
+  io.emit('output', data.toString());
+});
+
 io.on('connection', (socket) => {
   console.log('Client connected');
 
-  const dockerProcess = spawn('docker', ['run', '-i', '--rm', 'msh']);
-
-  dockerProcess.stdout.on('data', (data) => {
-    console.log('Docker output:', data.toString());
-    socket.emit('output', data.toString());
-  });
-
-  dockerProcess.stderr.on('data', (data) => {
-    console.error('Docker error output:', data.toString());
-    socket.emit('output', data.toString());
-  });
-
   socket.on('input', (input) => {
-    console.log('Received input:', input);  // Log the input received from the client
+    console.log('Received input:', input);
     dockerProcess.stdin.write(input);
   });
 
   socket.on('disconnect', () => {
     console.log('Client disconnected');
-    dockerProcess.kill();
   });
 });
 
