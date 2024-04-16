@@ -16,7 +16,6 @@ export default function Portfolio() {
       <About />
       <Cmd />
       <Experience />
-      {/* <div className="h-20 bg-gradient-to-b from-cal_poly_green-500 to-transparent"></div> */}
     </div>
   );
 }
