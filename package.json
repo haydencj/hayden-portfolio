@@ -16,6 +16,7 @@
     "@remix-run/react": "^2.8.1",
     "@remix-run/serve": "^2.8.1",
     "@vercel/analytics": "^1.2.2",
+    "@xterm/xterm": "^5.5.0",
     "autoprefixer": "^10.4.19",
     "gsap": "^3.12.5",
     "isbot": "^4.4.0",
