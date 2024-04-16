@@ -2,7 +2,7 @@ import type { MetaFunction } from '@remix-run/node';
 import Hero from '../components/Hero';
 import About from '~/components/About';
 import Experience from '~/components/Experience';
-import Cmd from '~/components/Cmd';
+import CmdWrapper from '~/components/CmdWrapper';
 
 export const meta: MetaFunction = () => {
   return [{ title: "hayden's site" }];
@@ -14,7 +14,7 @@ export default function Portfolio() {
     <div>
       <Hero />
       <About />
-      <Cmd />
+      <CmdWrapper />
       <Experience />
     </div>
   );
