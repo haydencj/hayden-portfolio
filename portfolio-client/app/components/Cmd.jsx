@@ -13,7 +13,6 @@ const Cmd = () => {
       fontFamily: '"Fira Code", monospace',
       fontSize: 14,
       cursorBlink: true,
-      cursorStyle: 'underline',
       theme: {
         background: '#1e1e1e',
         foreground: '#d4d4d4',
@@ -31,20 +30,22 @@ const Cmd = () => {
       terminal.write(data);
     });
 
-    terminal.onKey((event) => {
-      const { key } = event;
-      if (key === '\r') {
-        socketInstance.emit('input', inputBufferRef.current + '\n');
-        inputBufferRef.current = '';
-      }
-      else if (key === 8 ) {
-        
-      } 
-      else {
-        inputBufferRef.current += key;
-        terminal.write(key);
-      }
-    });
+    terminal.onKey(({ key, domEvent }) => {
+        const char = domEvent.key;
+        if (char === 'Enter') {
+          socketInstance.emit('input', inputBufferRef.current + '\n');
+          inputBufferRef.current = '';
+        } else if (char === 'Backspace') {
+          if (inputBufferRef.current.length > 0) {
+            terminal.write('\b \b');  // Move cursor back, print space to delete, and move back again
+            inputBufferRef.current = inputBufferRef.current.substring(0, inputBufferRef.current.length - 1);
+          }
+        } else {
+          inputBufferRef.current += char;
+          terminal.write(char);
+        }
+      });
+  
 
     return () => {
       socketInstance.disconnect();

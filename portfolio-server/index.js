@@ -17,7 +17,7 @@ const clientToDockerProcessMap = new Map();
 io.on('connection', (socket) => {
   console.log('Client connected');
 
-  const dockerProcess = spawn('docker', ['run', '-i', '--rm', 'msh']);
+  const dockerProcess = spawn('docker', ['run', '-i', '--rm', '--network', 'none', 'mavshell']);
   clientToDockerProcessMap.set(socket.id, dockerProcess);
 
   dockerProcess.stdout.on('data', (data) => {
