@@ -12,21 +12,23 @@ const io = socketIO(server, {
   },
 });
 
-// Start a single Docker process when the server starts
-const dockerProcess = spawn('docker', ['run', '-i', '--rm', 'msh']);
-
-dockerProcess.stdout.on('data', (data) => {
-  console.log('Docker output:', data.toString());
-  io.emit('output', data.toString());  // Emit to all clients
-});
-
-dockerProcess.stderr.on('data', (data) => {
-  console.error('Docker error:', data.toString());
-  io.emit('output', data.toString());
-});
+const clientToDockerProcessMap = new Map();
 
 io.on('connection', (socket) => {
   console.log('Client connected');
+
+  const dockerProcess = spawn('docker', ['run', '-i', '--rm', 'msh']);
+  clientToDockerProcessMap.set(socket.id, dockerProcess);
+
+  dockerProcess.stdout.on('data', (data) => {
+    console.log('Docker output:', data.toString());
+    io.emit('output', data.toString());  // Emit to all clients
+  });
+
+  dockerProcess.stderr.on('data', (data) => {
+    console.error('Docker error:', data.toString());
+    io.emit('output', data.toString());
+  });
 
   socket.on('input', (input) => {
     console.log('Received input:', input);
@@ -35,6 +37,11 @@ io.on('connection', (socket) => {
 
   socket.on('disconnect', () => {
     console.log('Client disconnected');
+    const dockerProcess = clientToDockerProcessMap.get(socket.id);
+    if (dockerProcess) {
+      dockerProcess.kill();  // This will terminate the Docker process
+      clientToDockerProcessMap.delete(socket.id);
+    }
   });
 });
 
