@@ -4,7 +4,7 @@ import About from '~/components/About';
 import Experience from '~/components/Experience';
 
 export const meta: MetaFunction = () => {
-  return [{ title: "hayden's site" }];
+  return [{ title: "Hayden Johnson" }];
 };
 
 export default function Portfolio() {
