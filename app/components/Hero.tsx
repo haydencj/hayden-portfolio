@@ -18,7 +18,7 @@ export default function Hero() {
         </div>
         <div className="flex flex-row items-center justify-center space-x-6 my-3">
           <a
-            href="/downloads/Hayden-Johnson-Resume.pdf"
+            href="/downloads/Hayden_Johnson_Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
           >

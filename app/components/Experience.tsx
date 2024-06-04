@@ -41,6 +41,20 @@ export default function Experience() {
           <div className="container w-fit">
             <h2 className="text-3xl font-bold mb-4">WORK</h2>
             <div className="flex items-center bg-snow shadow-lg border-2 border-black rounded-xl p-3 mb-4">
+              <Link to="https://www.linkedin.com/company/amdocs/">
+                <img
+                  src="/icons/amdocs_logo.jpeg"
+                  alt="Hayden Johnson"
+                  className="w-16 h-16 rounded-full mr-3 mb-6 sm:mb-0 transition-transform duration-300 hover:scale-110"
+                />
+              </Link>
+              <div>
+                <p className="text-lg font-bold">Software Engineer Intern</p>
+                <p>Amdocs | Plano, TX</p>
+                <p>June 2024 - Present</p>
+              </div>
+            </div>
+            <div className="flex items-center bg-snow shadow-lg border-2 border-black rounded-xl p-3 mb-4">
               <Link to="https://www.linkedin.com/company/oncor-electric-delivery/">
                 <img
                   src="/icons/oncor_logo.jpeg"
